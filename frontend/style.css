@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body,
+.container {
+  height: 100vh;
+  width: 100%;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+:root {
+  --bg-color: #f5f7fa;
+  --nav-bg: #ffffff;
+  --nav-border: #ddd;
+  --text-color: #222;
+  --btn-bg: #e2e8f0;
+  --btn-hover-bg: #cbd5e1;
+  --panel-bg: #ffffff;
+  --panel-border: #ccc;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body.dark {
+  --bg-color: #121212;
+  --nav-bg: #1e1e1e;
+  --nav-border: #2e2e2e;
+  --text-color: #f5f5f5;
+  --btn-bg: #2a2a2a;
+  --btn-hover-bg: #3a3a3a;
+  --panel-bg: #1a1a1a;
+  --panel-border: #333;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+  --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 1rem 2rem;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  box-shadow: var(--shadow);
+  flex-wrap: wrap;
+}
+
+.navbar-heading {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-color);
+  flex-shrink: 0;
+}
+
+.navbar-moods {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.mood-btn {
+  background: var(--btn-bg);
+  color: var(--text-color);
+  border: none;
+  padding: 7px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mood-btn:hover {
+  background-color: var(--btn-hover-bg);
+  transform: scale(1.05);
+}
+
+#mode-toggle {
+  user-select: none;
+  border: none;
+  cursor: pointer;
+  font-size: xx-large;
+  background: none;
+}
+
+#mode-toggle:hover {
+  opacity: 0.85;
+}
+
+.main-content {
+  display: flex;
+  flex-grow: 1;
+  background-color: var(--panel-bg);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  margin: 20px;
+  overflow: hidden;
+}
+
+.left-panel {
+  width: 35%;
+  padding: 25px 30px;
+  border-right: 1px solid var(--panel-border);
+  display: flex;
+  flex-direction: column;
+}
+
+.left-panel h2 {
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--text-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions {
+  flex-grow: 1;
+  overflow-y: auto;
+  background-color: var(--bg-color);
+  border-radius: 8px;
+  padding: 15px;
+  border: 1px solid var(--panel-border);
+  box-shadow: var(--shadow);
+}
+
+.suggestion-item {
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  color: var(--text-color);
+  background: var(--btn-bg);
+  box-shadow: var(--shadow);
+}
+
+.suggestion-item:hover {
+  background-color: var(--btn-hover-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.shuffle-btn {
+  margin-top: 20px;
+  background: var(--gradient);
+  border: none;
+  color: white;
+  padding: 12px;
+  font-weight: 700;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: opacity 0.3s ease;
+}
+
+.shuffle-btn:hover {
+  opacity: 0.9;
+}
+
+.right-panel {
+  width: 65%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--panel-bg);
+}
+
+#video-player {
+  margin-top: 70px;
+  height: 100%;
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+.video-controls {
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.video-controls button {
+  padding: 10px 22px;
+  background-color: var(--btn-bg);
+  color: var(--text-color);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.video-controls button:hover {
+  background-color: var(--btn-hover-bg);
+  transform: scale(1.1);
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    flex-direction: column;
+    margin: 10px;
+    border-radius: 12px;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+    padding: 20px 15px;
+  }
+
+  .right-panel {
+    padding-top: 10px;
+  }
+
+  #video-player {
+    height: 45vh;
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    justify-content: center;
+  }
+
+  .navbar-heading {
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .navbar-moods {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .video-controls {
+    justify-content: center;
+  }
+}
