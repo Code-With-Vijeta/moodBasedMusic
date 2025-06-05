@@ -7,7 +7,7 @@
   "author": "Your Name",
   "license": "MIT",
   "keywords": [],
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
     "start": "node backend/server.js",
     "dev": "vite",
